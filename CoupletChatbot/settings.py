@@ -25,7 +25,7 @@ SECRET_KEY = 'm$3w#1_*^50(7^(b4-s1s)-1n(knivk)(-e5#j2yfynjtz+7xn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'coupletchatbot',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +76,12 @@ WSGI_APPLICATION = 'CoupletChatbot.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'chatbot',
+        'USER': 'chatbot',
+        'PASSWORD': 'chatbot',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
 
