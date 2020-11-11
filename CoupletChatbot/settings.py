@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'coupletchatbot',
     'django_crontab',
     'couplet_dialog',
-
 ]
 
 MIDDLEWARE = [
