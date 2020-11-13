@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'm$3w#1_*^50(7^(b4-s1s)-1n(knivk)(-e5#j2yfynjtz+7xn'
+SECRET_KEY = '3m%=q3pm^!%yv!(05)_8#hk10morb!&hz@!q^m3&t2c79emwfj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['139.9.113.51', '0.0.0.0']
 
 
 # Application definition
@@ -38,8 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'coupletchatbot',
-    'django_crontab',
-    'couplet_dialog',
 ]
 
 MIDDLEWARE = [
@@ -82,7 +80,7 @@ DATABASES = {
         'NAME': 'chatbot',
         'USER': 'chatbot',
         'PASSWORD': 'chatbot',
-        'HOST': '127.0.0.1',
+        'HOST': '139.9.113.51',
         'PORT': '3306',
     }
 }
@@ -125,8 +123,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
-# 注册定时命令
-CRONJOBS = [
-    ('* * */7 * *', 'couplet_dialog.crontab_jobs.redis_to_sqlite', '>>./couplet_cronjobs.log')
-]
