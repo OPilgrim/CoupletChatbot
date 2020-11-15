@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import coupletchatbot.views as chatbot_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('index/', chatbot_views.index),
+    path('login/', chatbot_views.login),
+    path('register/', chatbot_views.register),
+    path('dialog/', chatbot_views.index),
 ]

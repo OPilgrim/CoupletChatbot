@@ -4,8 +4,8 @@ class User(models.Model):
     userid = models.AutoField(primary_key=True)
     email = models.EmailField(max_length=48)
     username = models.CharField(max_length=16)
-    password = models.CharField(max_length=16)
-    avatar = models.ImageField(upload_to='../avatar/')
+    password = models.CharField(max_length=128)
+    avatar = models.CharField(max_length=128,null=True)
 
     def __str__(self):
         return self.userid
