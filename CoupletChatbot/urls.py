@@ -22,5 +22,6 @@ urlpatterns = [
     path('index/', chatbot_views.index),
     path('login/', chatbot_views.login),
     path('register/', chatbot_views.register),
-    path('dialog/', chatbot_views.index),
+    path('dialog/', chatbot_views.dialog),
+    path('input/', chatbot_views.input),
 ]

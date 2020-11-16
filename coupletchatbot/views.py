@@ -1,6 +1,7 @@
 from coupletchatbot.models import User
 from django.shortcuts import render
 from django.shortcuts import redirect
+from django.http import HttpResponse
 from django.contrib.auth.hashers import make_password
 from . import forms
 from . import models
@@ -61,3 +62,16 @@ def register(request):
             return redirect("/register/")
     register_form = forms.RegisterForm()
     return render(request, 'register.html', locals())
+
+
+def input(request):
+    if request.is_ajax():
+        ajax_string = 'ajax request'
+    else:
+        ajax_string = 'not ajax request'
+    resp = HttpResponse(ajax_string)
+    return resp
+
+def dialog(request):
+    pass
+    return render(request, 'ajax.html')

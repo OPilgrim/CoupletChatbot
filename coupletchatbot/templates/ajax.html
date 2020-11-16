@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}主页{% endblock %}
+{% block css %}<link href="{% static 'css/login.css' %}" rel="stylesheet"/>{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="col-md-4 col-md-offset-4">
+        <form action="/input/" method="GET">
+            <p>输入测试语句</p>
+            input<input type="text" id="sentence" name="sentence"> <br>
+            <p>output: <span id="result"></span></p>
+            <button type="button" id="dialog">submit</button>
+        </form>
+        <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#dialog").click(function(){
+                    var sentence = $("#sentence").val();
+                    $.get("/input/", {'sentence':sentence}, function(ret){
+                        $('#result').html(ret)
+                    })
+                });
+            });
+        </script>
+    </div>
+</div>
+{% endblock %}
