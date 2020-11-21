@@ -5,7 +5,9 @@ from django.http import HttpResponse
 from django.contrib.auth.hashers import make_password
 from . import forms
 from . import models
+from . import process
 import os
+
 
 def index(request):
     pass
@@ -63,10 +65,9 @@ def register(request):
     register_form = forms.RegisterForm()
     return render(request, 'register.html', locals())
 
-
 def input(request):
     if request.is_ajax():
-        ajax_string = 'ajax request'
+        ajax_string = process.processSentence(request.GET["sentence"])
     else:
         ajax_string = 'not ajax request'
     resp = HttpResponse(ajax_string)
@@ -75,3 +76,5 @@ def input(request):
 def dialog(request):
     pass
     return render(request, 'ajax.html')
+
+
